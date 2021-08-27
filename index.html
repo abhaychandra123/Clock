@@ -1,0 +1,49 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100&display=swap" rel="stylesheet">
+	</head>
+	<body>
+	<nav>
+		<div class="left-menu">
+		<a href="index2.html">TO-DO LIST</a>
+		</div>
+		<div class="right-menu">
+			<a href="index.html"> CLOCK </a>
+		</div>
+		<div class="mid-menu">
+			<a href="about.htm"> ABOUT 	</a>
+		</div>
+	</nav>
+	<div id="MyClockDisplay" class="clock"></div>
+	<script>
+	function showTime()
+	{
+		var date=new Date();
+		var h=date.getHours();
+		var m=date.getMinutes();
+		var s=date.getSeconds();
+		var session="AM";
+		
+		if(h==0)
+		{
+			h=12;
+		}
+		if(h>12)
+		{
+			h-=12;
+			session="PM";
+		}
+		h=(h<10)?"0"+h:h;
+		m=(m<10)?"0"+m:m;
+		s=(s<10)?"0"+s:s;
+		var time= h+":"+m+":"+s + " " + session;
+		document.getElementById("MyClockDisplay").innerText=time;
+		document.getElementById("MyClockDisplay").textContent=time;
+		setTimeout(showTime,1000);
+	}
+	showTime();
+	</script>
+</html>
